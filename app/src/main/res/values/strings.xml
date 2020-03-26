@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PokeCals</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="atk">Damage Dealt</string>
+    <string name="def">Damage Taken</string>
+    <string name="mult">X</string>
+</resources>
