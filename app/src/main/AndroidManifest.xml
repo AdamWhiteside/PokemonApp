@@ -16,7 +16,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/poke_widget_info" />
+                android:resource="@xml/poke_widget" />
         </receiver>
 
         <activity android:name=".MainActivity">

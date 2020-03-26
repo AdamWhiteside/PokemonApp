@@ -3,7 +3,7 @@
     android:initialKeyguardLayout="@layout/poke_widget"
     android:initialLayout="@layout/poke_widget"
     android:minWidth="250dp"
-    android:minHeight="110dp"
+    android:minHeight="250dp"
     android:previewImage="@drawable/example_appwidget_preview"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen"></appwidget-provider>
