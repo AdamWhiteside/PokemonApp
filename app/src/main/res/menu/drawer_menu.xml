@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_attack"
+            android:icon="@drawable/menu1"
+            android:title="Attack Type Calc" />
+        <item
+            android:id="@+id/nav_type"
+            android:icon="@drawable/menu2"
+            android:title="Type Calc" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/menu3"
+            android:title="Help" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/menu4"
+            android:title="About" />
+
+    </group>
+
+    <item android:title="communicate">
+        <menu>
+            <item android:id="@+id/nav_share"
+                android:icon="@drawable/abc_vector_test"
+                android:title="Message3"/>
+        </menu>
+    </item>
+
+</menu>
