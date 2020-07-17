@@ -1,4 +1,4 @@
-package com.example.pokecals;
+package com.example.PokeTypeCalc;
 
 import org.junit.Test;
 

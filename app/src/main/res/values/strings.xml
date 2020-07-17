@@ -1,10 +1,17 @@
 <resources>
-    <string name="app_name">PokeCals</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
+    <string name="app_name">PokeTypeCalc</string>
     <string name="atk">Damage Dealt</string>
     <string name="def">Damage Taken</string>
     <string name="mult">X</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="help_str">Help</string>
+    <string name="about_str">This is my first app, I put a lot of time into it and had a lot of fun working on it. I’m still learning so I would love to hear ideas for improvement.</string>
+    <string name="about_thanks">Thanks for using my app!</string>
+    <string name="classic">Classic</string>
+    <string name="great">Great</string>
+    <string name="ultra">Ultra</string>
+    <string name="master">Master</string>
+    <string name="premiere">Premiere</string>
+    <string name="heavy">Heavy</string>
 </resources>

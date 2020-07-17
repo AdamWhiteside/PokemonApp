@@ -1,6 +1,6 @@
-package com.example.pokecals;
+package com.example.PokeTypeCalc;
 
-import android.content.res.Configuration;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +13,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 
@@ -25,45 +26,46 @@ public class attackFragment extends Fragment {
     private final static String type3 = "tp3";
     private final static String type4 = "tp4";
     private final static String effectiveness = "efct";
+    private AdView mAdView;
+    //protected View mView;
 
-    protected View mView;
+    private boolean atk = true;
+    private int tp1, tp2, tp3, tp4;
 
-    boolean atk = true;
-    int tp1, tp2, tp3, tp4;
-    double efct = 1;
+    private double efct = 1;
 
-    Spinner dropDown1;
-    Spinner dropDown2;
-    Spinner dropDown3;
-    Spinner dropDown4;
-    ImageButton arrro;
-    ImageView pokepic;
-    TextView mode;
-    TextView dps;
-    LinearLayout wal;
-
+    private Spinner dropDown1;
+    private Spinner dropDown2;
+    private Spinner dropDown3;
+    private Spinner dropDown4;
+    private ImageButton arrro;
+    private ImageView pokepic;
+    private TextView mode;
+    private TextView dps;
+    private LinearLayout wal;
 
 
-    final double[][] typeEffect = {
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, .5, 0, 1, 1, .5, 1, 1},
-            {1, .5, .5, 1, 2, 2, 1, 1, 1, 1, 1, 2, .5, 1, .5, 1, 2, 1, 1},
-            {1, 2, .5, 1, .5, 1, 1, 1, 2, 1, 1, 1, 2, 1, .5, 1, 1, 1, 1},
-            {1, 1, 2, .5, .5, 1, 1, 1, 0, 2, 1, 1, 1, 1, .5, 1, 1, 1, 1},
-            {1, .5, 2, 1, .5, 1, 1, .5, 2, .5, 1, .5, 2, 1, .5, 1, .5, 1, 1},
-            {1, .5, .5, 1, 2, .5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, .5, 1, 1},
-            {2, 1, 1, 1, 1, 2, 1, .5, 1, .5, .5, .5, 2, 0, 1, 2, 2, .5, 1},
-            {1, 1, 1, 1, 2, 1, 1, .5, .5, 1, 1, 1, .5, .5, 1, 1, 0, 2, 1},
-            {1, 2, 1, 2, .5, 1, 1, 2, 1, 0, 1, .5, 2, 1, 1, 1, 2, 1, 1},
-            {1, 1, 1, .5, 2, 1, 2, 1, 1, 1, 1, 2, .5, 1, 1, 1, .5, 1, 1},
-            {1, 1, 1, 1, 1, 1, 2, 2, 1, 1, .5, 1, 1, 1, 1, 0, .5, 1, 1},
-            {1, .5, 1, 1, 2, 1, .5, .5, 1, .5, 2, 1, 1, .5, 1, 2, .5, .5, 1},
-            {1, 2, 1, 1, 1, 2, .5, 1, .5, 2, 1, 2, 1, 1, 1, 1, .5, 1, 1},
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, .5, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, .5, 0, 1},
-            {1, 1, 1, 1, 1, 1, .5, 1, 1, 1, 2, 1, 1, 2, 1, .5, 1, .5, 1},
-            {1, .5, .5, .5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, .5, 2, 1},
-            {1, 1, 1, 1, 1, 1, 1, 2, .5, 1, 1, 1, 1, 1, 2, 2, .5, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+    private final double[][] typeEffect = {
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, .5, 0, 1, 1, .5, 1},
+            {1, 1, .5, .5, 1, 2, 2, 1, 1, 1, 1, 1, 2, .5, 1, .5, 1, 2, 1},
+            {1, 1, 2, .5, 1, .5, 1, 1, 1, 2, 1, 1, 1, 2, 1, .5, 1, 1, 1},
+            {1, 1, 1, 2, .5, .5, 1, 1, 1, 0, 2, 1, 1, 1, 1, .5, 1, 1, 1},
+            {1, 1, .5, 2, 1, .5, 1, 1, .5, 2, .5, 1, .5, 2, 1, .5, 1, .5, 1},
+            {1, 1, .5, .5, 1, 2, .5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, .5, 1},
+            {1, 2, 1, 1, 1, 1, 2, 1, .5, 1, .5, .5, .5, 2, 0, 1, 2, 2, .5},
+            {1, 1, 1, 1, 1, 2, 1, 1, .5, .5, 1, 1, 1, .5, .5, 1, 1, 0, 2},
+            {1, 1, 2, 1, 2, .5, 1, 1, 2, 1, 0, 1, .5, 2, 1, 1, 1, 2, 1},
+            {1, 1, 1, 1, .5, 2, 1, 2, 1, 1, 1, 1, 2, .5, 1, 1, 1, .5, 1},
+            {1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, .5, 1, 1, 1, 1, 0, .5, 1},
+            {1, 1, .5, 1, 1, 2, 1, .5, .5, 1, .5, 2, 1, 1, .5, 1, 2, .5, .5},
+            {1, 1, 2, 1, 1, 1, 2, .5, 1, .5, 2, 1, 2, 1, 1, 1, 1, .5, 1},
+            {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, .5, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, .5, 0},
+            {1, 1, 1, 1, 1, 1, 1, .5, 1, 1, 1, 2, 1, 1, 2, 1, .5, 1, .5},
+            {1, 1, .5, .5, .5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, .5, 2},
+            {1, 1, 1, 1, 1, 1, 1, 1, 2, .5, 1, 1, 1, 1, 1, 2, 2, .5, 1}
     };
 
 
@@ -75,17 +77,11 @@ public class attackFragment extends Fragment {
 
         //super.onCreate(savedInstanceState);
 
-        /*
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
 
-        mAdView = mAdView.findViewById(R.id.adView);
+        AdView mAdView = rootView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-*/
+
         arrro = rootView.findViewById(R.id.imageButton3);
         dropDown1 = rootView.findViewById(R.id.spinner1);
         dropDown2 = rootView.findViewById(R.id.spinner2);
@@ -94,13 +90,12 @@ public class attackFragment extends Fragment {
         dps = rootView.findViewById(R.id.textView3);
         mode = rootView.findViewById(R.id.textView);
         pokepic = rootView.findViewById(R.id.imageView);
-        wal = rootView.findViewById(R.id.wallp);
+        //wal = rootView.findViewById(R.id.wallp);
 
-        final Integer[] types = new Integer[]{R.drawable.nm, R.drawable.fi, R.drawable.wt, R.drawable.el,
+        final Integer[] types = new Integer[]{R.drawable.nn, R.drawable.nm, R.drawable.fi, R.drawable.wt, R.drawable.el,
                 R.drawable.gs, R.drawable.ic, R.drawable.ft, R.drawable.ps, R.drawable.gd,
                 R.drawable.fy, R.drawable.py, R.drawable.bg, R.drawable.rk, R.drawable.gh,
                 R.drawable.dg, R.drawable.dk, R.drawable.st, R.drawable.fr};
-
 
 
         if (savedInstanceState != null) {
@@ -110,53 +105,26 @@ public class attackFragment extends Fragment {
             tp3 = savedInstanceState.getInt(type3);
             tp4 = savedInstanceState.getInt(type4);
             efct = savedInstanceState.getDouble(effectiveness);
-            /*
-            final SimpleImageArrayAdapter adapter = new SimpleImageArrayAdapter(this, types);
-            dropDown1.setAdapter(adapter);
-            dropDown2.setAdapter(adapter);
-            dropDown3.setAdapter(adapter);
-            dropDown4.setAdapter(adapter);
-             */
         }
 
-
-
-
-
-
-/*
-        arrro = rootView.findViewById(R.id.imageButton3);
-        dropDown1 = getView().findViewById(R.id.spinner1);
-        dropDown2 = getView().findViewById(R.id.spinner2);
-        dropDown3 = getView().findViewById(R.id.spinner3);
-        dropDown4 = getView().findViewById(R.id.spinner4);
-        dps = getView().findViewById(R.id.textView3);
-        mode = getView().findViewById(R.id.textView);
-        pokepic = getView().findViewById(R.id.imageView);
-        wal = getView().findViewById(R.id.wallp);
-
- */
-
-
         SimpleImageArrayAdapter adapter = new SimpleImageArrayAdapter(rootView.getContext(), types);
-if(rootView.getContext() != null) {
+
     if (atk) {
-        //arrro.setBackgroundResource(R.drawable.arr);
         arrro.setBackgroundResource(R.drawable.arr);
-        pokepic.setBackgroundResource(R.drawable.atk);
+        pokepic.setBackgroundResource(R.drawable.atk1);
         dropDown4.setVisibility(View.VISIBLE);
         dropDown2.setVisibility(View.GONE);
         mode.setText(R.string.atk);
         calcDps();
     } else {
         arrro.setBackgroundResource(R.drawable.arrl);
-        pokepic.setBackgroundResource(R.drawable.def);
+        pokepic.setBackgroundResource(R.drawable.def1);
         dropDown4.setVisibility(View.GONE);
         dropDown2.setVisibility(View.VISIBLE);
         mode.setText(R.string.def);
         calcDps();
     }
-}
+
         //arrow to toggle between attacking and defending
         arrro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,7 +144,6 @@ if(rootView.getContext() != null) {
                     atk = true;
                     calcDps();
                 }
-
             }
         });
 
@@ -190,6 +157,8 @@ if(rootView.getContext() != null) {
                 //Toast.makeText(MainActivity.this, "Selected: "+ itemvalue, Toast.LENGTH_SHORT).show();
                 dropDown1.setBackgroundResource(itemvalue);
                 tp1 = position;
+
+
                 calcDps();
                 //types[tp2] = R.drawable.nn;
                 //Toast.makeText(MainActivity.this, "Selected: "+ tp1, Toast.LENGTH_SHORT).show();
@@ -208,7 +177,6 @@ if(rootView.getContext() != null) {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int itemvalue = Integer.parseInt(parent.getItemAtPosition(position).toString());
 
-                //Toast.makeText(MainActivity.this, "Selected: "+ itemvalue, Toast.LENGTH_SHORT).show();
                 dropDown2.setBackgroundResource(itemvalue);
                 tp2 = position;
                 calcDps();
@@ -261,6 +229,7 @@ if(rootView.getContext() != null) {
             }
         });
 
+        /*
         //wallpaper on rotation
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -269,13 +238,16 @@ if(rootView.getContext() != null) {
             wal.setBackgroundResource(R.drawable.bak1);
         }
 
+         */
+
 
 
         return rootView;
     }
 
     //caculates type effectiveness
-    public void calcDps(){
+    @SuppressLint("SetTextI18n")
+    private void calcDps(){
         if (atk){
             efct = (typeEffect[tp1][tp3] * typeEffect[tp1][tp4]);
             dps.setText(efct + "");
@@ -286,7 +258,14 @@ if(rootView.getContext() != null) {
         setImg();
     }
 
-    public void setImg(){
+    private void setImg(){
+        if (efct == 0){
+            if(atk){
+                pokepic.setBackgroundResource(R.drawable.atk0);
+            }else{
+                pokepic.setBackgroundResource(R.drawable.def0);
+            }
+        }
         if (efct == .25){
             if(atk){
                 pokepic.setBackgroundResource(R.drawable.atk1);

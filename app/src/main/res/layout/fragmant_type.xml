@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/top1"
         android:gravity="center"
         android:orientation="vertical">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4" />
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="20dp">
+            android:padding="10dp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp" />
 
             <Spinner
                 android:id="@+id/spinner11"
@@ -21,13 +33,41 @@
                 android:layout_height="40dp"
                 android:background="@drawable/gs" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:padding="10dp" />
+
             <Spinner
                 android:id="@+id/spinner12"
                 android:layout_width="133dp"
                 android:layout_height="40dp"
                 android:background="@drawable/gs" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp" />
+
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0"
+            android:background="#00FFFFFF"
+            android:maxWidth="40dp"
+            android:maxHeight="40dp"
+            android:scaleType="fitCenter" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,47 +75,37 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/type1"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff1"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/type2"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
-            <ImageView
-                android:id="@+id/type3"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
-
-            <TextView
-                android:id="@+id/eff2"
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -85,47 +115,78 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/type3"
+                android:layout_width="100dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/eff2"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textSize="25sp" />
+
             <ImageView
                 android:id="@+id/type4"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="34dp" />
 
             <TextView
                 android:id="@+id/eff3"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textSize="25sp" />
+
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/type5"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff4"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/type6"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff5"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,47 +195,38 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/type7"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff6"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/type8"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff7"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
-            <ImageView
-                android:id="@+id/type9"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
-
-            <TextView
-                android:id="@+id/eff8"
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -183,47 +235,77 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/type9"
+                android:layout_width="100dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/eff8"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
             <ImageView
                 android:id="@+id/type10"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff9"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/type11"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff10"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/type12"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff11"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -232,47 +314,38 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/type13"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff12"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/type14"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff13"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
-            <ImageView
-                android:id="@+id/type15"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
-
-            <TextView
-                android:id="@+id/eff14"
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -281,49 +354,95 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/type15"
+                android:layout_width="100dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/eff14"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
             <ImageView
                 android:id="@+id/type16"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff15"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/type17"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff16"
-                android:layout_width="wrap_content"
+                android:layout_width="70dip"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
                 android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/type18"
                 android:layout_width="100dp"
-                android:layout_height="30dp"
-                app:srcCompat="@drawable/bg" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/eff17"
+                android:layout_width="70dip"
+                android:layout_height="wrap_content"
+                android:textSize="25sp" />
+
+            <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="X2"
-                android:textSize="25sp" />
+                android:layout_weight="1" />
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="9" />
+
     </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9937503802638876/1405322766">
+    </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

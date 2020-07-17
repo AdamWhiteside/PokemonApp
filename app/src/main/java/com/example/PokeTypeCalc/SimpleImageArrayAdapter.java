@@ -1,15 +1,13 @@
-package com.example.pokecals;
+package com.example.PokeTypeCalc;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-    public class SimpleImageArrayAdapter extends ArrayAdapter<Integer> {
+public class SimpleImageArrayAdapter extends ArrayAdapter<Integer> {
         private Integer[] images;
 
         public SimpleImageArrayAdapter(Context context, Integer[] images) {
